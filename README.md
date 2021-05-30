@@ -1,10 +1,10 @@
-brainfuck
-[![Build Status](https://github.com/fabianishere/brainfuck/workflows/Build/badge.svg)](https://github.com/fabianishere/brainfuck/actions?query=workflow%3ABuild)
+brainheck
+[![Build Status](https://github.com/fabianishere/brainheck/workflows/Build/badge.svg)](https://github.com/fabianishere/brainheck/actions?query=workflow%3ABuild)
 ===========
-Brainfuck interpreter written in C.
+Brainheck interpreter written in C.
 
 ## Usage
-    brainfuck [-veh] file...
+    brainheck [-veh] file...
 	-e --eval	run code directly
 	-v --version	show version information
 	-h --help	show a help message.
@@ -16,31 +16,31 @@ We also provide a C api:
 ``` c
 #include <stdio.h>
 #include <stdlib.h>
-#include <brainfuck.h>
+#include <brainheck.h>
     
 int main() {
-	BrainfuckState *state = brainfuck_state();
-	BrainfuckExecutionContext *context = brainfuck_context(BRAINFUCK_TAPE_SIZE);
-	BrainfuckInstruction *instruction = brainfuck_parse_string(",+++++.");
- 	brainfuck_add(state, instruction);
- 	brainfuck_execute(state->root, context);
-	brainfuck_destroy_context(context);
- 	brainfuck_destroy_state(state);
+	BrainheckState *state = brainheck_state();
+	BrainheckExecutionContext *context = brainheck_context(BRAINFUCK_TAPE_SIZE);
+	BrainheckInstruction *instruction = brainheck_parse_string(",+++++.");
+ 	brainheck_add(state, instruction);
+ 	brainheck_execute(state->root, context);
+	brainheck_destroy_context(context);
+ 	brainheck_destroy_state(state);
 	return EXIT_SUCCESS;
 }
 ```
 
 ## Examples
 The [examples/](/examples) directory contains a large amount of 
-brainfuck example programs. We have tried to attribute the original
+brainheck example programs. We have tried to attribute the original
 authors of these programs where possible.
 
 ## Getting the source
 Download the source code by running the following code in your command prompt:
 ```sh
-$ git clone https://github.com/fabianishere/brainfuck.git
+$ git clone https://github.com/fabianishere/brainheck.git
 ```
-or simply [grab](https://github.com/fabianishere/brainfuck/archive/master.zip) a copy of the source code as a Zip file.
+or simply [grab](https://github.com/fabianishere/brainheck/archive/master.zip) a copy of the source code as a Zip file.
 
 ## Building
 Create the build directory.
@@ -48,7 +48,7 @@ Create the build directory.
 $ mkdir build
 $ cd build
 ```
-Brainfuck requires CMake and a C compiler (e.g. Clang or GCC) in order to run. It also depends on [libedit](http://thrysoee.dk/editline/), which is available in the main repositories of most Linux distributions (e.g. as [libedit-dev](https://packages.debian.org/stretch/libedit-dev) on Debian/Ubuntu) and comes with the macOS XCode command line tools. 
+Brainheck requires CMake and a C compiler (e.g. Clang or GCC) in order to run. It also depends on [libedit](http://thrysoee.dk/editline/), which is available in the main repositories of most Linux distributions (e.g. as [libedit-dev](https://packages.debian.org/stretch/libedit-dev) on Debian/Ubuntu) and comes with the macOS XCode command line tools. 
 Then, simply create the Makefiles:
 ```sh
 $ cmake ..
@@ -64,7 +64,7 @@ $ make install
 ```
 Alternatively, you may run the interpreter directly without installation, for instance:
 ```sh
-$ ./brainfuck ../examples/hello.bf
+$ ./brainheck ../examples/hello.bf
 ```
 
 ## License
